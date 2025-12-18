@@ -26,7 +26,7 @@
                     <a href="utilisateurs.php" class="text-gray-700 hover:text-green-700 font-medium">Utilisateurs</a>
                     <a href="animaux.php" class="text-gray-700 hover:text-green-700 font-medium">Animaux</a>
                     <a href="habitats.php" class="text-green-700 font-medium border-b-2 border-green-600">Habitats</a>
-                    <a href="../index.php" class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded text-sm">Déconnexion</a>
+                    <a href="../logout.php" class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded text-sm">Déconnexion</a>
                 </nav>
             </div>
         </div>

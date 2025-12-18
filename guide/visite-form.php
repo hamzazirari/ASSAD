@@ -28,7 +28,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="../index.php" class="text-red-600 hover:text-red-700 font-medium transition duration-200">
+                        <a href="../logout.php" class="text-red-600 hover:text-red-700 font-medium transition duration-200">
                             Déconnexion
                         </a>
                     </li>
@@ -115,7 +115,7 @@
                 <!-- Durée et Prix -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     
-                
+
 
                     <!-- Prix -->
                     <div>
