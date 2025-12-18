@@ -78,21 +78,6 @@
                     >
                 </div>
 
-                <!-- Description -->
-                <div>
-                    <label for="description" class="block text-sm font-medium text-gray-700 mb-2">
-                        Description <span class="text-red-500">*</span>
-                    </label>
-                    <textarea 
-                        id="description" 
-                        name="description" 
-                        rows="5"
-                        placeholder="Décrivez le contenu et les objectifs de la visite guidée..."
-                        required
-                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition duration-200 outline-none resize-none"
-                    ></textarea>
-                    <p class="text-xs text-gray-500 mt-1">Minimum 50 caractères</p>
-                </div>
 
                 <!-- Date et Heure -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -130,23 +115,7 @@
                 <!-- Durée et Prix -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     
-                    <!-- Durée -->
-                    <div>
-                        <label for="duree" class="block text-sm font-medium text-gray-700 mb-2">
-                            Durée (en minutes) <span class="text-red-500">*</span>
-                        </label>
-                        <input 
-                            type="number" 
-                            id="duree" 
-                            name="duree" 
-                            min="30"
-                            max="300"
-                            placeholder="Ex: 120"
-                            required
-                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition duration-200 outline-none"
-                        >
-                        <p class="text-xs text-gray-500 mt-1">Entre 30 et 300 minutes</p>
-                    </div>
+                
 
                     <!-- Prix -->
                     <div>
