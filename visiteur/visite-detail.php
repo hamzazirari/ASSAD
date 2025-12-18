@@ -21,7 +21,7 @@
                 <ul class="flex items-center space-x-6">
                     <li><a href="animaux.php" class="text-gray-600 hover:text-green-700 font-medium transition duration-200">Animaux</a></li>
                     <li><a href="visites.php" class="text-green-700 font-semibold hover:text-green-800 transition duration-200">Visites guidées</a></li>
-                    <li><a href="../logout.php" class="text-red-600 hover:text-red-700 font-medium transition duration-200">Déconnexion</a></li>
+                    <li><a href="../index.php" class="text-red-600 hover:text-red-700 font-medium transition duration-200">Déconnexion</a></li>
                 </ul>
             </div>
         </nav>

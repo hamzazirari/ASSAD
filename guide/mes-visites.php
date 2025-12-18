@@ -23,7 +23,7 @@
                 </div>
                 <nav class="flex items-center space-x-4">
                     <a href="dashboard.php" class="text-gray-700 hover:text-green-700 font-medium transition">Dashboard</a>
-                    <a href="../logout.php" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg transition">Déconnexion</a>
+                    <a href="../index.php" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg transition">Déconnexion</a>
                 </nav>
             </div>
         </div>
