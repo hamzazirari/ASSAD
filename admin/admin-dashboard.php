@@ -141,7 +141,7 @@
                 </a>
 
                 <!-- Statistiques -->
-                <a href="stats.php" class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition transform hover:-translate-y-1">
+                <a href="statistiques.php" class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition transform hover:-translate-y-1">
                     <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-4">
                         <span class="text-white text-3xl">📊</span>
                     </div>
