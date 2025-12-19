@@ -1,3 +1,6 @@
+<?php
+require '../db.php';
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -111,96 +114,6 @@
                     <p class="text-sm text-gray-600 mb-4"><span class="font-semibold">Pays :</span> Kenya</p>
                     <a 
                         href="animal-detail.php?id=1" 
-                        class="block w-full text-center bg-green-600 hover:bg-green-700 text-white font-semibold py-2 rounded-lg transition duration-200"
-                    >
-                        Voir détails
-                    </a>
-                </div>
-            </div>
-
-            <!-- Card Animal 2 - Éléphant -->
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-amber-100 hover:shadow-xl transition duration-300">
-                <div class="h-48 bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center">
-                    <span class="text-7xl">🐘</span>
-                </div>
-                <div class="p-5">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Dumbo</h3>
-                    <p class="text-sm text-gray-600 mb-1"><span class="font-semibold">Espèce :</span> Éléphant d'Afrique</p>
-                    <p class="text-sm text-gray-600 mb-4"><span class="font-semibold">Pays :</span> Tanzanie</p>
-                    <a 
-                        href="animal-detail.php?id=2" 
-                        class="block w-full text-center bg-green-600 hover:bg-green-700 text-white font-semibold py-2 rounded-lg transition duration-200"
-                    >
-                        Voir détails
-                    </a>
-                </div>
-            </div>
-
-            <!-- Card Animal 3 - Zèbre -->
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-amber-100 hover:shadow-xl transition duration-300">
-                <div class="h-48 bg-gradient-to-br from-slate-200 to-slate-300 flex items-center justify-center">
-                    <span class="text-7xl">🦓</span>
-                </div>
-                <div class="p-5">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Marty</h3>
-                    <p class="text-sm text-gray-600 mb-1"><span class="font-semibold">Espèce :</span> Zèbre des plaines</p>
-                    <p class="text-sm text-gray-600 mb-4"><span class="font-semibold">Pays :</span> Kenya</p>
-                    <a 
-                        href="animal-detail.php?id=3" 
-                        class="block w-full text-center bg-green-600 hover:bg-green-700 text-white font-semibold py-2 rounded-lg transition duration-200"
-                    >
-                        Voir détails
-                    </a>
-                </div>
-            </div>
-
-            <!-- Card Animal 4 - Girafe -->
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-amber-100 hover:shadow-xl transition duration-300">
-                <div class="h-48 bg-gradient-to-br from-yellow-200 to-orange-300 flex items-center justify-center">
-                    <span class="text-7xl">🦒</span>
-                </div>
-                <div class="p-5">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Melman</h3>
-                    <p class="text-sm text-gray-600 mb-1"><span class="font-semibold">Espèce :</span> Girafe réticulée</p>
-                    <p class="text-sm text-gray-600 mb-4"><span class="font-semibold">Pays :</span> Afrique du Sud</p>
-                    <a 
-                        href="animal-detail.php?id=4" 
-                        class="block w-full text-center bg-green-600 hover:bg-green-700 text-white font-semibold py-2 rounded-lg transition duration-200"
-                    >
-                        Voir détails
-                    </a>
-                </div>
-            </div>
-
-            <!-- Card Animal 5 - Rhinocéros -->
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-amber-100 hover:shadow-xl transition duration-300">
-                <div class="h-48 bg-gradient-to-br from-stone-300 to-stone-400 flex items-center justify-center">
-                    <span class="text-7xl">🦏</span>
-                </div>
-                <div class="p-5">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Kibo</h3>
-                    <p class="text-sm text-gray-600 mb-1"><span class="font-semibold">Espèce :</span> Rhinocéros blanc</p>
-                    <p class="text-sm text-gray-600 mb-4"><span class="font-semibold">Pays :</span> Afrique du Sud</p>
-                    <a 
-                        href="animal-detail.php?id=5" 
-                        class="block w-full text-center bg-green-600 hover:bg-green-700 text-white font-semibold py-2 rounded-lg transition duration-200"
-                    >
-                        Voir détails
-                    </a>
-                </div>
-            </div>
-
-            <!-- Card Animal 6 - Hippopotame -->
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-amber-100 hover:shadow-xl transition duration-300">
-                <div class="h-48 bg-gradient-to-br from-purple-200 to-purple-300 flex items-center justify-center">
-                    <span class="text-7xl">🦛</span>
-                </div>
-                <div class="p-5">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Gloria</h3>
-                    <p class="text-sm text-gray-600 mb-1"><span class="font-semibold">Espèce :</span> Hippopotame commun</p>
-                    <p class="text-sm text-gray-600 mb-4"><span class="font-semibold">Pays :</span> Cameroun</p>
-                    <a 
-                        href="animal-detail.php?id=6" 
                         class="block w-full text-center bg-green-600 hover:bg-green-700 text-white font-semibold py-2 rounded-lg transition duration-200"
                     >
                         Voir détails

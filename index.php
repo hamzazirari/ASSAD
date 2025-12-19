@@ -1,3 +1,22 @@
+<?php
+session_start();
+require 'db.php';
+if(isset($_POST['submit'])){
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+}
+$query = "SELECT * FROM utilisateurs WHERE email='$email'";
+
+$result = mysqli_query($conn, $query);
+
+if(mysqli_query($result) > 0){
+    $user = mysqli_fetch_assoc($result);
+}else{
+    $error = "Email non trouvé";
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -23,7 +42,7 @@
             <h2 class="text-2xl font-semibold text-gray-800 mb-6 text-center">Connexion</h2>
             
             <!-- Formulaire -->
-            <form action="login.php" method="POST" class="space-y-5">
+            <form action="index.php" method="POST" class="space-y-5">
                 
                 <!-- Champ Email -->
                 <div>

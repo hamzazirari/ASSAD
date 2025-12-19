@@ -1,9 +1,13 @@
+<?php
+require '../db.php';
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Zoo Virtuel ASSAD - Détail de l'animal">
+    <meta name="description" content="Zoo Virtuel ASSAD - Asaad, le Lion de l'Atlas, mascotte CAN 2025">
     <title>Asaad - Lion de l'Atlas - Zoo Virtuel ASSAD</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -23,8 +27,8 @@
                 <!-- Menu de navigation -->
                 <ul class="flex items-center space-x-6">
                     <li>
-                        <a href="animaux.php" class="text-green-700 font-semibold hover:text-green-800 transition duration-200">
-                            Animaux
+                        <a href="animaux.php" class="text-gray-600 hover:text-green-700 font-medium transition duration-200">
+                            Accueil
                         </a>
                     </li>
                     <li>
@@ -54,7 +58,7 @@
                 <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
                 </svg>
-                Retour à la liste des animaux
+                Retour à l'accueil
             </a>
         </div>
 
@@ -65,7 +69,7 @@
             <div class="h-96 bg-gradient-to-br from-amber-300 via-orange-300 to-yellow-400 flex items-center justify-center relative overflow-hidden">
                 <span class="text-9xl">🦁</span>
                 <div class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg">
-                    <span class="text-sm font-semibold text-amber-700">Animal vedette</span>
+                    <span class="text-sm font-semibold text-amber-700">🏆 Mascotte CAN 2025</span>
                 </div>
             </div>
 
@@ -75,16 +79,30 @@
                 <!-- Titre -->
                 <h2 class="text-4xl font-bold text-gray-800 mb-4">Asaad – Lion de l'Atlas</h2>
                 
+                <!-- Badge CAN -->
+                <div class="mb-6">
+                    <span class="inline-flex items-center bg-gradient-to-r from-amber-600 to-green-700 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-md">
+                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        Animal emblématique de la CAN 2025
+                    </span>
+                </div>
+                
                 <!-- Description -->
                 <div class="mb-8">
                     <p class="text-gray-700 leading-relaxed text-lg mb-4">
                         Asaad est un magnifique lion de l'Atlas, une sous-espèce emblématique qui peuplait autrefois les montagnes de l'Atlas en Afrique du Nord. 
-                        Connu pour sa crinière majestueuse et sa stature imposante, Asaad incarne la force et la noblesse de cette espèce légendaire.
+                        Connu pour sa crinière majestueuse et sa stature imposante, Asaad incarne la force et la noblesse de cette espèce légendaire, 
+                        et représente fièrement le Maroc lors de la Coupe d'Afrique des Nations 2025.
                     </p>
-                    <p class="text-gray-700 leading-relaxed text-lg">
+                    <p class="text-gray-700 leading-relaxed text-lg mb-4">
                         Le lion de l'Atlas était historiquement plus grand que ses cousins des savanes africaines, avec une crinière plus épaisse et plus sombre. 
                         Malheureusement, cette sous-espèce est considérée comme éteinte à l'état sauvage depuis le milieu du XXe siècle, mais quelques spécimens 
                         survivent dans des parcs zoologiques à travers le monde, contribuant aux programmes de conservation.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed text-lg">
+                        Symbole de courage et de fierté, Asaad rappelle l'importance de préserver notre patrimoine naturel et culturel pour les générations futures.
                     </p>
                 </div>
 
@@ -158,6 +176,21 @@
 
                 </div>
 
+                <!-- Section symbolique CAN -->
+                <div class="bg-gradient-to-r from-amber-50 to-green-50 p-6 rounded-xl border-2 border-amber-300 mb-8">
+                    <h3 class="text-xl font-bold text-gray-800 mb-3 flex items-center">
+                        <svg class="w-6 h-6 mr-2 text-amber-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        Symbole de la CAN 2025
+                    </h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Le lion de l'Atlas représente la force, le courage et la dignité du Maroc. En tant que mascotte de la CAN 2025, 
+                        Asaad incarne l'esprit sportif africain et la richesse du patrimoine naturel du continent. Il rappelle également 
+                        l'importance de la conservation des espèces menacées et de la préservation de notre biodiversité.
+                    </p>
+                </div>
+
                 <!-- Bouton retour (bas de page) -->
                 <div class="pt-6 border-t border-gray-200">
                     <a 
@@ -167,7 +200,7 @@
                         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
                         </svg>
-                        Retour à la liste des animaux
+                        Retour à l'accueil
                     </a>
                 </div>
 
