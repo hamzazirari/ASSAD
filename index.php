@@ -1,21 +1,53 @@
 <?php
 session_start();
 require 'db.php';
-if(isset($_POST['submit'])){
+
+if (isset($_POST['submit'])) {
+
     $email = $_POST['email'];
     $password = $_POST['password'];
+
+    $query = "SELECT * FROM utilisateurs WHERE email='$email'";
+    $result = mysqli_query($conn, $query);
+
+    if (mysqli_num_rows($result) == 1) {
+
+        $user = mysqli_fetch_assoc($result);
+
+        // Vérification mot de passe
+        if (password_verify($password, $user['motpasse_hash'])) {
+
+          // Bloquer les guides non activés
+        if ($user['rôle'] === 'guide' && $user['statut'] !== 'actif') {                echo "Votre compte guide n'est pas encore approuvé par l'administrateur.";
+          exit;
+                    }
+
+    // Stocker les infos en session
+     $_SESSION['user_id']   = $user['id_utilisateur'];
+         $_SESSION['user_name'] = $user['nom'];
+  $_SESSION['user_role'] = $user['rôle'];
+
+            // Redirection selon le rôle
+      if ($user['rôle'] === 'admin') {
+          header("Location: admin/admin-dashboard.php");
+       } elseif ($user['rôle'] === 'guide') {
+                header("Location: guide/dashboard.php");
+            } else {
+                header("Location: visiteur/animaux.php");
+            }
+            exit;
+
+        } else {
+            echo "Mot de passe incorrect";
+        }
+
+    } else {
+        echo "Email non trouvé";
+    }
 }
-$query = "SELECT * FROM utilisateurs WHERE email='$email'";
-
-$result = mysqli_query($conn, $query);
-
-if(mysqli_query($result) > 0){
-    $user = mysqli_fetch_assoc($result);
-}else{
-    $error = "Email non trouvé";
-}
-
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -77,6 +109,7 @@ if(mysqli_query($result) > 0){
                 <!-- Bouton de connexion -->
                 <button 
                     type="submit"
+                    name="submit"
                     class="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-semibold py-3 rounded-lg shadow-md hover:shadow-lg transition duration-300 transform hover:scale-105"
                 >
                     Se connecter

@@ -1,5 +1,12 @@
 <?php
 require '../db.php';
+require '../auth.php';
+
+
+if ($_SESSION['user_role'] !== 'admin') {
+    header("Location: /index.php");
+    exit;
+}
 ?>
 
 <!DOCTYPE html>

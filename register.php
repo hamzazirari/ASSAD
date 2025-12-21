@@ -1,6 +1,46 @@
 <?php
 require 'db.php';
+
+if (isset($_POST['fullname'], $_POST['email'], $_POST['password'], $_POST['confirm_password'], $_POST['role'])) {
+
+    $name = $_POST['fullname'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $confirm_password = $_POST['confirm_password'];
+    $role = $_POST['role'];
+
+    if ($password !== $confirm_password) {
+        echo "Les mots de passe ne correspondent pas";
+        exit;
+    }
+
+    $checkEmail = "SELECT id_utilisateur FROM utilisateurs WHERE email='$email'";
+    $result = mysqli_query($conn, $checkEmail);
+
+    if (mysqli_num_rows($result) > 0) {
+        echo "Cet email existe déjà";
+        exit;
+    }
+
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+    $insert = "INSERT INTO utilisateurs (nom, email, rôle, motpasse_hash)
+               VALUES ('$name', '$email', '$role', '$hashedPassword')";
+
+    if (mysqli_query($conn, $insert)) {
+
+        if ($role === 'guide') {
+            echo "Inscription réussie. Compte en attente d'approbation.";
+        } else {
+            echo "Inscription réussie. Vous pouvez vous connecter.";
+        }
+
+    } else {
+        echo "Erreur lors de l'inscription";
+    }
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -27,7 +67,7 @@ require 'db.php';
             <h2 class="text-2xl font-semibold text-gray-800 mb-6 text-center">Créer un compte</h2>
             
             <!-- Formulaire -->
-            <form action="signup.php" method="POST" class="space-y-5">
+            <form action="register.php" method="POST" class="space-y-5">
                 
                 <!-- Champ Nom complet -->
                 <div>

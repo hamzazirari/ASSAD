@@ -1,5 +1,18 @@
 <?php
 require '../db.php';
+require '../auth.php';
+
+if ($_SESSION['user_role'] !== 'visiteur') {
+    header("Location: /index.php");
+    exit;
+}
+
+// Récupérer tous les animaux depuis la base de données
+$query = "SELECT a.*, h.nom_hab 
+          FROM animaux a 
+          LEFT JOIN habitats h ON a.id_habitat = h.id_hab 
+          ORDER BY a.nom";
+$result = mysqli_query($conn, $query);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -54,72 +67,44 @@ require '../db.php';
             <p class="text-gray-600">Découvrez la faune africaine de notre zoo virtuel</p>
         </div>
 
-        <!-- Section filtres -->
-        <div class="bg-white rounded-lg shadow-md p-6 mb-8 border border-amber-100">
-            <h3 class="text-lg font-semibold text-gray-800 mb-4">Filtrer les animaux</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                
-                <!-- Filtre Habitat -->
-                <div>
-                    <label for="habitat" class="block text-sm font-medium text-gray-700 mb-2">
-                        Habitat
-                    </label>
-                    <select 
-                        id="habitat" 
-                        name="habitat"
-                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition duration-200"
-                    >
-                        <option value="">Tous les habitats</option>
-                        <option value="savane">Savane</option>
-                        <option value="jungle">Jungle</option>
-                        <option value="desert">Désert</option>
-                        <option value="montagne">Montagne</option>
-                        <option value="zone_humide">Zone humide</option>
-                    </select>
-                </div>
-
-                <!-- Filtre Pays -->
-                <div>
-                    <label for="pays" class="block text-sm font-medium text-gray-700 mb-2">
-                        Pays d'origine
-                    </label>
-                    <select 
-                        id="pays" 
-                        name="pays"
-                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent outline-none transition duration-200"
-                    >
-                        <option value="">Tous les pays</option>
-                        <option value="kenya">Kenya</option>
-                        <option value="tanzanie">Tanzanie</option>
-                        <option value="afrique_sud">Afrique du Sud</option>
-                        <option value="cameroun">Cameroun</option>
-                        <option value="senegal">Sénégal</option>
-                        <option value="madagascar">Madagascar</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-
         <!-- Liste des animaux (Cards) -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             
-            <!-- Card Animal 1 - Lion -->
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-amber-100 hover:shadow-xl transition duration-300">
-                <div class="h-48 bg-gradient-to-br from-amber-200 to-yellow-300 flex items-center justify-center">
-                    <span class="text-7xl">🦁</span>
-                </div>
-                <div class="p-5">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">Simba</h3>
-                    <p class="text-sm text-gray-600 mb-1"><span class="font-semibold">Espèce :</span> Lion d'Afrique</p>
-                    <p class="text-sm text-gray-600 mb-4"><span class="font-semibold">Pays :</span> Kenya</p>
-                    <a 
-                        href="animal-detail.php?id=1" 
-                        class="block w-full text-center bg-green-600 hover:bg-green-700 text-white font-semibold py-2 rounded-lg transition duration-200"
-                    >
-                        Voir détails
-                    </a>
-                </div>
-            </div>
+            <?php
+            // Afficher chaque animal
+            while ($animal = mysqli_fetch_assoc($result)) {
+                echo '<div class="bg-white rounded-xl shadow-lg overflow-hidden border border-amber-100 hover:shadow-xl transition duration-300">';
+                
+                // Image ou emoji
+                echo '<div class="h-48 bg-gradient-to-br from-amber-200 to-yellow-300 flex items-center justify-center">';
+                if ($animal['image']) {
+                    echo '<img src="../uploads/' . htmlspecialchars($animal['image']) . '" alt="' . htmlspecialchars($animal['nom']) . '" class="w-full h-full object-cover">';
+                } else {
+                    echo '<span class="text-7xl">🦁</span>';
+                }
+                echo '</div>';
+                
+                // Informations
+                echo '<div class="p-5">';
+                echo '<h3 class="text-xl font-bold text-gray-800 mb-2">' . htmlspecialchars($animal['nom']) . '</h3>';
+                echo '<p class="text-sm text-gray-600 mb-1"><span class="font-semibold">Espèce :</span> ' . htmlspecialchars($animal['espèce']) . '</p>';
+                echo '<p class="text-sm text-gray-600 mb-1"><span class="font-semibold">Pays :</span> ' . htmlspecialchars($animal['paysorigine']) . '</p>';
+                
+                if ($animal['nom_hab']) {
+                    echo '<p class="text-sm text-gray-600"><span class="font-semibold">Habitat :</span> ' . htmlspecialchars($animal['nom_hab']) . '</p>';
+                }
+                
+                echo '</div>';
+                echo '</div>';
+            }
+            
+            // Si aucun animal
+            if (mysqli_num_rows($result) == 0) {
+                echo '<div class="col-span-3 text-center py-12">';
+                echo '<p class="text-gray-500 text-lg">Aucun animal disponible pour le moment.</p>';
+                echo '</div>';
+            }
+            ?>
 
         </div>
 
